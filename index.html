@@ -3,68 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine? 💕</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Valentine's Day Ask</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Floating hearts background -->
-        <div class="hearts-background"></div>
-
-        <!-- Main content -->
-        <div class="content">
-            <div class="greeting">
-                <h1>Hey Lizzy! 💕</h1>
-                <p class="subtitle">I have something to ask you...</p>
-            </div>
-
-            <!-- Photo carousel -->
-            <div class="photo-section">
-                <div class="carousel">
-                    <div class="carousel-container">
-                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+1" alt="Memory 1" class="carousel-image active">
-                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+2" alt="Memory 2" class="carousel-image">
-                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+3" alt="Memory 3" class="carousel-image">
-                    </div>
-                    <button class="carousel-btn prev" onclick="prevSlide()">❮</button>
-                    <button class="carousel-btn next" onclick="nextSlide()">❯</button>
-                </div>
-                <p class="carousel-caption">Memories we share together ✨</p>
-            </div>
-
-            <!-- Love message -->
-            <div class="message">
-                <p>You make every moment special. Your smile brightens my day, and I can't imagine my life without you.</p>
-                <p>You're my best friend, my biggest supporter, and the person I want to spend all my time with.</p>
-            </div>
-
-            <!-- The big question -->
-            <div class="question">
-                <h2>Will you be my Valentine?</h2>
-                <div class="button-container">
-                    <button class="btn yes-btn" onclick="handleYes()">YES! 💕</button>
-                    <button class="btn no-btn" onclick="handleNo()">No</button>
-                </div>
-            </div>
-
-            <!-- Confetti canvas -->
-            <canvas id="confetti-canvas"></canvas>
-
-            <!-- Result message -->
-            <div id="result-message" class="result-message hidden">
-                <h2>🎉 You've made me the happiest person! 🎉</h2>
-                <p>I can't wait to celebrate Valentine's Day with you!</p>
-                <div class="heart-burst">
-                    <span class="heart">💕</span>
-                    <span class="heart">💕</span>
-                    <span class="heart">💕</span>
-                    <span class="heart">💕</span>
-                    <span class="heart">💕</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <header>
+        <h1>Happy Valentine's Day!</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Make Your Valentine Feel Special</h2>
+            <p>Use this platform to express your love and affection!</p>
+            <form>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send Love</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Valentine's Day Project</p>
+    </footer>
 </body>
 </html>
