@@ -1,159 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lizzy 💖 My Valentine</title>
-
-  <!-- Cute anime font -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4ec);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Quicksand', sans-serif;
-      overflow: hidden;
-    }
-
-    .card {
-      background: white;
-      border-radius: 25px;
-      padding: 25px;
-      max-width: 360px;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(255,105,180,0.4);
-      animation: pop 1s ease;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    h1 {
-      font-family: 'Pacifico', cursive;
-      color: #ff4f9a;
-      margin-bottom: 10px;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 20px;
-      margin: 15px 0;
-    }
-
-    p {
-      color: #555;
-      font-size: 15px;
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-      transition: 0.3s;
-    }
-
-    #yes {
-      background: #ff4f9a;
-      color: white;
-    }
-
-    #yes:hover {
-      transform: scale(1.1);
-    }
-
-    #no {
-      background: #ddd;
-      position: absolute;
-    }
-
-    .hearts {
-      position: fixed;
-      font-size: 20px;
-      animation: float 4s infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-600px); opacity: 0; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <!-- Floating hearts background -->
+        <div class="hearts-background"></div>
 
-  <div class="card">
-    <h1>Hey Lizzy 💕</h1>
-    <p>(aka <b>Mrs Kittens 😼💖</b>)</p>
+        <!-- Main content -->
+        <div class="content">
+            <div class="greeting">
+                <h1>Hey Lizzy! 💕</h1>
+                <p class="subtitle">I have something to ask you...</p>
+            </div>
 
-    <img src="us.jpg" alt="Us together">
+            <!-- Photo carousel -->
+            <div class="photo-section">
+                <div class="carousel">
+                    <div class="carousel-container">
+                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+1" alt="Memory 1" class="carousel-image active">
+                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+2" alt="Memory 2" class="carousel-image">
+                        <img src="https://via.placeholder.com/300x300?text=Our+Memory+3" alt="Memory 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevSlide()">❮</button>
+                    <button class="carousel-btn next" onclick="nextSlide()">❯</button>
+                </div>
+                <p class="carousel-caption">Memories we share together ✨</p>
+            </div>
 
-    <p>
-      You make my heart do anime sound effects 🥹✨  
-      Sooo I have one very important question…
-    </p>
+            <!-- Love message -->
+            <div class="message">
+                <p>You make every moment special. Your smile brightens my day, and I can't imagine my life without you.</p>
+                <p>You're my best friend, my biggest supporter, and the person I want to spend all my time with.</p>
+            </div>
 
-    <h1>Will you be my Valentine? 💘</h1>
+            <!-- The big question -->
+            <div class="question">
+                <h2>Will you be my Valentine?</h2>
+                <div class="button-container">
+                    <button class="btn yes-btn" onclick="handleYes()">YES! 💕</button>
+                    <button class="btn no-btn" onclick="handleNo()">No</button>
+                </div>
+            </div>
 
-    <div class="buttons">
-      <button id="yes" onclick="sayYes()">YES 😍</button>
-      <button id="no" onmouseover="moveNo()">No 😅</button>
-    </div>
-  </div>
+            <!-- Confetti canvas -->
+            <canvas id="confetti-canvas"></canvas>
 
-  <!-- Music -->
-  <audio autoplay loop>
-    <source src="https://dl.dropboxusercontent.com/scl/fi/3o5i6m0p6f6yq4v9q1/Anne-Marie-2002.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function sayYes() {
-      document.body.innerHTML = `
-        <div style="
-          height:100vh;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          align-items:center;
-          background:linear-gradient(135deg,#ffb6c1,#ffe4ec);
-          font-family:'Pacifico',cursive;
-          text-align:center;">
-          <h1 style="color:#ff4f9a;">YAAAAAY 💖🎉</h1>
-          <p style="font-size:22px;">Lizzy said YES 😍</p>
-          <p style="font-size:18px;">Valentine secured 😌💘</p>
+            <!-- Result message -->
+            <div id="result-message" class="result-message hidden">
+                <h2>🎉 You've made me the happiest person! 🎉</h2>
+                <p>I can't wait to celebrate Valentine's Day with you!</p>
+                <div class="heart-burst">
+                    <span class="heart">💕</span>
+                    <span class="heart">💕</span>
+                    <span class="heart">💕</span>
+                    <span class="heart">💕</span>
+                    <span class="heart">💕</span>
+                </div>
+            </div>
         </div>
-      `;
-    }
+    </div>
 
-    function moveNo() {
-      const noBtn = document.getElementById("no");
-      noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-      noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-    }
-
-    // floating hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "hearts";
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "0px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 4000);
-    }, 500);
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
